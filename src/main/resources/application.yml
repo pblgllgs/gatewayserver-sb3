@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+  application:
+    name: gatewayserver
+  profiles:
+    active: local
+  config:
+    import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8071/
