@@ -11,3 +11,12 @@ spring:
     active: local
   config:
     import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8071/
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 2
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
