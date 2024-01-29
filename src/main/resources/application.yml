@@ -5,6 +5,14 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:7080/realms/master/protocol/openid-connect/certs
   cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
+        enabled: true
+    discovery:
+      client:
+        health-indicator:
+          enabled: false
     gateway:
       discovery:
         locator:
